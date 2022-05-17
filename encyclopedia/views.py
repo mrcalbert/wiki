@@ -19,10 +19,11 @@ def index(request):
             "entries": util.list_entries()
         })
 
-def searchbar(request, query):
+def searchbar(request):
+    query = request.GET['q']
     searchlist = [x.lower() for x in util.list_entries()]
-    searchresult = [f"<li> <a href='wiki/{result}'> {result} </a> </li>" for result in searchlist if query.lower() in result.lower()]
-    
+    searchresult = [f"<li> <a href='/wiki/{result}'> {result} </a> </li>" for result in searchlist if query.lower() in result.lower()]
+
     if query in searchlist:
         return entries(request, query)
 
