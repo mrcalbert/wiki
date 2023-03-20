@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create a page
+{% endblock %}
+
+{% block body %}
+
+<h1> Create a page</h1>
+
+{{ title|safe }}
+
+
+<div>
+    <div class="row">
+        <div class="col-md-9">
+        <form method="post">
+            <textarea id='newtitle' name='title_entry' style='height: 30px;'>Enter the title.</textarea>
+            <textarea id='newbody' name='body_entry' style='height: 400px;'>Enter the information text for the body.</textarea>
+        <button type='submit' name='savebutton'style="border-radius: 4px;" >Save and create page</button>
+        </form>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-3">
+            {{ error|safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}
